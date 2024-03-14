@@ -5,5 +5,7 @@
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/model/ModelFactory.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/model/DataLoader.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/main/Main.java
+/Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/ViewDriverPatientsServlet.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/SearchServlet.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/model/Model.java
+/Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/ViewDeadPatientsServlet.java

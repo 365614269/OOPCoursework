@@ -8,4 +8,5 @@ uk/ac/ucl/model/Column.class
 uk/ac/ucl/servlets/ViewDeadPatientsServlet.class
 uk/ac/ucl/servlets/ViewDriverPatientsServlet.class
 uk/ac/ucl/servlets/ViewPatientListServlet.class
+uk/ac/ucl/servlets/JSONWriterServlet.class
 uk/ac/ucl/model/ModelFactory.class

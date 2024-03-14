@@ -1,0 +1,51 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+}
+
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    display: table; /* Centering the list if the page layout allows */
+}
+
+nav ul li {
+    margin: 10px 0; /* Space out the links */
+}
+
+nav ul li a {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block; /* To apply padding and margin correctly */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: #2980b9; /* Slightly darker shade on hover/focus */
+    color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    nav ul li a {
+        padding: 8px 16px; /* Slightly smaller padding on smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}

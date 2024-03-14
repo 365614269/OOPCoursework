@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="patientList.css">
+
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLEncoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,7 +18,7 @@
       List<String> patients = (List<String>) request.getAttribute("patientNames");
       for (String patient : patients)
       {
-        String href = "patientDetails.html?patientID=" + URLEncoder.encode(patient, "UTF-8");;
+        String href = "patientDetails.html?patientID=" + URLEncoder.encode(patient, "UTF-8");
     %>
     <li><a href="<%=href%>"><%=patient%></a>
     </li>

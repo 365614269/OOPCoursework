@@ -1,0 +1,29 @@
+
+
+div {
+    background-color: #3498db; /* Bright blue for header background */
+    color: white; /* White text for contrast */
+    padding: 10px 20px; /* Padding around the content */
+    text-align: center; /* Center-align the content */
+    border-bottom: 2px solid #2980b9; /* A slightly darker blue border for a subtle separation */
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: normal; /* Optional: Adjust the weight of the header font */
+}
+
+.clearBoth {
+    clear: both; /* Ensures that floating elements do not affect the layout of the header */
+}
+
+@media (max-width: 768px) {
+    div {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+    h1 {
+        font-size: 20px; /* Adjust font size for readability on smaller devices */
+    }
+}

@@ -25,7 +25,6 @@ public class ViewPatientDetailsServlet extends HttpServlet {
         try {
             String patientID = (String) request.getParameter("patientID");
             ArrayList<String> columnNames = model.getColumnNames();
-            System.out.println(request);
             ArrayList<String> patientDetails = model.getPatientDetails(patientID);
             // Then add the data to the request object that will be sent to the Java Server Page, so that
             // the JSP can access the data (a Java data structure).

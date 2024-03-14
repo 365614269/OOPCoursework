@@ -10,8 +10,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
-public class Model
-{
+public class Model {
   // The example code in this class should be replaced by your Model class code.
   // The data should be stored in a suitable data structure.
   private DataFrame dataFrame;
@@ -56,6 +55,7 @@ public class Model
   public ArrayList<String> getColumnNames() {
     return this.dataFrame.getColumnNames();
   }
+
   public ArrayList<String> searchFor(String keyword) {
 //     Implement search logic across all columns or specific columns
 //     For simplicity, searching in the "PREFIX", "FIRST" and "LAST" column here
@@ -74,4 +74,31 @@ public class Model
 
     return searchResults;
   }
+
+  public ArrayList<String> getDeadPatients() {
+    int size = this.dataFrame.getRowCount();
+    ArrayList<String> searchResults = new ArrayList<>();
+
+    for (int i = 0; i < size; i++) {
+      if (!this.dataFrame.getValue("DEATHDATE", i).isBlank()) {
+        searchResults.add(this.dataFrame.getValue("ID", i));
+      }
+    }
+
+    return searchResults;
+  }
+
+  public ArrayList<String> getDriverPatients() {
+    int size = this.dataFrame.getRowCount();
+    ArrayList<String> searchResults = new ArrayList<>();
+
+    for (int i = 0; i < size; i++) {
+      if (!this.dataFrame.getValue("DRIVERS", i).isBlank()) {
+        searchResults.add(this.dataFrame.getValue("ID", i));
+      }
+    }
+
+    return searchResults;
+  }
+
 }

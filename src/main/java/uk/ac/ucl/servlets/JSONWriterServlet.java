@@ -1,5 +1,6 @@
 package uk.ac.ucl.servlets;
 
+import uk.ac.ucl.model.JSONWriter;
 import uk.ac.ucl.model.Model;
 import uk.ac.ucl.model.ModelFactory;
 
@@ -26,7 +27,8 @@ public class JSONWriterServlet extends HttpServlet
         // Java Server Page used to display the results.
         Model model = ModelFactory.getModel();
         String fileName = request.getParameter("fileNameString");
-        model.WriteJSON(fileName);
+        JSONWriter jsonWriter = new JSONWriter(fileName, model.getDataFrame());
+        jsonWriter.write();
 
         // Invoke the JSP page.
         ServletContext context = getServletContext();

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="patientList.css">
+<link rel="stylesheet" href="css/patientList.css">
 
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLEncoder" %>

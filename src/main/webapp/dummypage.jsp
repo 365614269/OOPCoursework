@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="dummypage.css">
+<link rel="stylesheet" href="css/dummypage.css">
 
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>

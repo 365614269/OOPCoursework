@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="searchResult.css">
+<link rel="stylesheet" href="css/searchResult.css">
 
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLEncoder" %>

@@ -24,6 +24,10 @@ public class Model {
     this.dataLoader = new DataLoader();
   }
 
+  public DataFrame getDataFrame() {
+    return this.dataFrame;
+  }
+
   public void readFile(String path) {
     this.dataLoader.setPath(path);
     this.dataFrame = dataLoader.read();
@@ -59,19 +63,30 @@ public class Model {
     return this.dataFrame.getColumnNames();
   }
 
-  public ArrayList<String> searchFor(String keyword) {
+  public ArrayList<String> searchFor(ArrayList<String> keywords) {
 //     Implement search logic across all columns or specific columns
 //     For simplicity, searching in the "PREFIX", "FIRST" and "LAST" column here
     int size = this.dataFrame.getRowCount();
     ArrayList<String> searchResults = new ArrayList<>();
 
-    for (int i = 0; i < size; i++) {
-      String prefix = this.dataFrame.getValue("PREFIX", i).replaceAll("\\d+$", "");  // Delete the trailing digits
-      String first = this.dataFrame.getValue("FIRST", i).replaceAll("\\d+$", "");
-      String last = this.dataFrame.getValue("LAST", i).replaceAll("\\d+$", "");
+    for (int i = 0; i < keywords.size(); i++) {
+      if (keywords.get(i) == null) {
+        keywords.set(i, "");  // Set the null to
+      }
+    }
 
-      if (prefix.contains(keyword) || first.contains(keyword) || last.contains(keyword)) {
-        searchResults.add(this.dataFrame.getValue("ID", i));
+    for (int i = 0; i < size; i++) {
+      ArrayList<String> row = this.dataFrame.getRow(i);
+      boolean flag = true;
+
+      for (int j = 0; j < keywords.size(); j++) {
+        if (!row.get(j).contains(keywords.get(j))) {
+          flag = false;
+        }
+      }
+
+      if (flag) {
+        searchResults.add(row.getFirst());
       }
     }
 
@@ -102,29 +117,5 @@ public class Model {
     }
 
     return searchResults;
-  }
-
-  public void WriteJSON(String fileName) {
-    ArrayList<String> columnNames = this.getColumnNames();
-    int size = this.dataFrame.getRowCount();
-
-    try (FileWriter file = new FileWriter(fileName + ".json")){
-      JSONArray jsonArray = new JSONArray();
-
-      for (int i = 0; i < size; i++) {
-        ArrayList<String> row = this.dataFrame.getRow(i);
-        JSONObject person = new JSONObject();
-
-        for (int j = 0; j < row.size(); j++) {
-          person.put(columnNames.get(j), row.get(j));
-        }
-
-        jsonArray.put(person);
-      }
-
-      file.write(jsonArray.toString(4));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
 }

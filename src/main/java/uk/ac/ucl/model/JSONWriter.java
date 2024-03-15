@@ -14,8 +14,8 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 
 public class JSONWriter {
-    private String fileName;
-    private DataFrame dataFrame;
+    private final String fileName;
+    private final DataFrame dataFrame;
     public JSONWriter(String fileName, DataFrame dataFrame) {
         this.fileName = fileName;
         this.dataFrame = dataFrame;

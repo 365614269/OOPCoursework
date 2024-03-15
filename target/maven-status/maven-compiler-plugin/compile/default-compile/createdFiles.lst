@@ -1,6 +1,7 @@
 uk/ac/ucl/servlets/SearchServlet.class
 uk/ac/ucl/servlets/ViewPatientDetailsServlet.class
 uk/ac/ucl/main/Main.class
+uk/ac/ucl/servlets/AddServlet.class
 uk/ac/ucl/model/DataLoader.class
 uk/ac/ucl/model/Model.class
 uk/ac/ucl/servlets/ViewDriverPatientsServlet.class
@@ -11,3 +12,4 @@ uk/ac/ucl/model/Column.class
 uk/ac/ucl/servlets/ViewDeadPatientsServlet.class
 uk/ac/ucl/servlets/ViewPatientListServlet.class
 uk/ac/ucl/servlets/JSONWriterServlet.class
+uk/ac/ucl/servlets/WriteChangeServlet.class

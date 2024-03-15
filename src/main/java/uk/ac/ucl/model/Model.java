@@ -118,4 +118,26 @@ public class Model {
 
     return searchResults;
   }
+
+  public void setValue(String ID, String columnName, String value) {
+    int size = this.dataFrame.getRowCount();
+
+    for (int i = 0; i < size; i++) {
+      if (this.dataFrame.getValue("ID", i).equals(ID)) {
+        this.dataFrame.putValue(columnName, i, value);
+      }
+    }
+  }
+
+  public void addValue(ArrayList<String> row) {
+    ArrayList<String> columnNames = this.getColumnNames();
+
+    for (int i = 0; i < columnNames.size(); i++) {
+      try {
+        this.dataFrame.addValue(columnNames.get(i), row.get(i));
+      } catch (IllegalArgumentException e) {
+        e.printStackTrace();
+      }
+    }
+  }
 }

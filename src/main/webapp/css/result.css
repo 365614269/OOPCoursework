@@ -1,0 +1,20 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 40px;
+    color: #333;
+}
+
+h1 {
+    color: #0066cc;
+}
+
+a {
+    color: #cc0000;
+    text-decoration: none; /* Removes underline from links */
+}
+
+a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}

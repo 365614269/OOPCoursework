@@ -47,4 +47,12 @@ public class Column {
     public void addRowValue(String newRow) {
         this.rows.add(newRow);
     }
+
+    public void deleteRow(int row) throws IndexOutOfBoundsException {
+        if (row >= this.rows.size()) {
+            throw new IndexOutOfBoundsException("Access of array index out of bound");
+        } else {
+            this.rows.remove(row);
+        }
+    }
 }

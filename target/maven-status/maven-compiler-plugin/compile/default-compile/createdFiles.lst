@@ -1,5 +1,6 @@
 uk/ac/ucl/servlets/SearchServlet.class
 uk/ac/ucl/servlets/ViewPatientDetailsServlet.class
+uk/ac/ucl/servlets/DeleteServlet.class
 uk/ac/ucl/main/Main.class
 uk/ac/ucl/servlets/AddServlet.class
 uk/ac/ucl/model/DataLoader.class

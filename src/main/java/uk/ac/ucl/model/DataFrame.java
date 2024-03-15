@@ -86,4 +86,17 @@ public class DataFrame {
 
         throw new IllegalArgumentException("Column name not found: " + columnName);
     }
+
+    public void deleteRow(String ID) {
+        for (int i = 0; i < this.getRowCount(); i++) {
+            if (this.getValue("ID", i).equals(ID)) {
+                for (Column column : this.columns) {
+                    column.deleteRow(i);
+                }
+                return;
+            }
+        }
+
+        throw new IllegalArgumentException("ID not found: " + ID);
+    }
 }

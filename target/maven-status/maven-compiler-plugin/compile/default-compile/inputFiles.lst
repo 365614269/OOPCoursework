@@ -1,4 +1,5 @@
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/ViewPatientListServlet.java
+/Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/AddServlet.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/ViewPatientDetailsServlet.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/model/ModelFactory.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/WriteChangeServlet.java
@@ -11,4 +12,5 @@
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/ViewDriverPatientsServlet.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/SearchServlet.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/model/JSONWriter.java
+/Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/servlets/DeleteServlet.java
 /Users/MarkF/Desktop/OOPCoursework/src/main/java/uk/ac/ucl/model/Model.java

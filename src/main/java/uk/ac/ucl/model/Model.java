@@ -140,4 +140,10 @@ public class Model {
       }
     }
   }
+
+  public void deleteRow(String rowID) {
+    int size = this.dataFrame.getRowCount();
+
+    this.dataFrame.deleteRow(rowID);
+  }
 }

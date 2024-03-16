@@ -31,16 +31,16 @@ public class Model {
     this.dataFrame = dataLoader.read();
   }
 
-  public ArrayList<String> getPatientNames() {
+  public ArrayList<String> getPatientIDs() {
     int size = this.dataFrame.getRowCount();
-    ArrayList<String> patientNames = new ArrayList<>();
+    ArrayList<String> patientIDs = new ArrayList<>();
 
     for (int i = 0; i < size; i++) {
       String nowName = this.dataFrame.getValue("ID", i);
-      patientNames.add(nowName);
+      patientIDs.add(nowName);
     }
 
-    return patientNames;
+    return patientIDs;
   }
 
   public ArrayList<String> getPatientDetails(String ID) {
@@ -50,12 +50,33 @@ public class Model {
     return this.dataFrame.getRow(rowNum);
   }
 
-  // This method illustrates how to read csv data from a file.
-  // The data files are stored in the root directory of the project (the directory your project is in),
-  // in the directory named data.
+  public String getPatientName(String patientID) {
+    int size = this.dataFrame.getRowCount();
 
-  // This also returns dummy data. The real version should use the keyword parameter to search
-  // the data and return a list of matching items.
+    StringBuilder patientNameBuilder = new StringBuilder();
+    String[] nameOrigin = {"PREFIX", "FIRST", "LAST"};
+
+    for (int i = 0; i < size; i++) {
+      if (this.dataFrame.getValue("ID", i).equals(patientID)) {
+          for (String s : nameOrigin) {
+              String nameChunk = this.dataFrame.getValue(s, i).replaceAll("\\d+$", "");
+              patientNameBuilder.append(nameChunk).append(" ");
+          }
+      }
+    }
+
+    return patientNameBuilder.toString();
+  }
+
+  public ArrayList<String> getPatientNames(List<String> patientIDs) {
+    ArrayList<String> patientNames = new ArrayList<>();
+
+    for (int i = 0; i < patientIDs.size(); i++) {
+      patientNames.add(this.getPatientName(patientIDs.get(i)));
+    }
+
+    return patientNames;
+  }
 
   public ArrayList<String> getColumnNames() {
     return this.dataFrame.getColumnNames();

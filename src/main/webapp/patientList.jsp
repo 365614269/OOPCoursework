@@ -2,6 +2,7 @@
 
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -15,12 +16,13 @@
   <h2>Patients:</h2>
   <ul>
     <%
-      List<String> patients = (List<String>) request.getAttribute("patientNames");
-      for (String patient : patients)
+      List<String> patientIDs = (List<String>) request.getAttribute("patientIDs");
+      ArrayList<String> patientNames = (ArrayList<String>) request.getAttribute("patientNames");
+      for (int i = 0; i < patientIDs.size(); i++)
       {
-        String href = "patientDetails.html?patientID=" + URLEncoder.encode(patient, "UTF-8");
+        String href = "patientDetails.html?patientID=" + URLEncoder.encode(patientIDs.get(i), "UTF-8");
     %>
-    <li><a href="<%=href%>"><%=patient%></a>
+    <li><a href="<%=href%>"><%=patientNames.get(i)%></a>
     </li>
     <% } %>
   </ul>

@@ -31,8 +31,10 @@ public class SearchServlet extends HttpServlet
       searchParams.add(request.getParameter("param" + i));
     }
 
-    List<String> searchResult = model.searchFor(searchParams);
-    request.setAttribute("result", searchResult);
+    List<String> resultIDs = model.searchFor(searchParams);
+    ArrayList<String> resultNames = model.getPatientNames(resultIDs);
+    request.setAttribute("resultIDs", resultIDs);
+    request.setAttribute("resultNames", resultNames);
 
     // Invoke the JSP page.
     ServletContext context = getServletContext();

@@ -26,15 +26,17 @@ public class ViewPatientDetailsServlet extends HttpServlet {
             String patientID = (String) request.getParameter("patientID");
             ArrayList<String> columnNames = model.getColumnNames();
             ArrayList<String> patientDetails = model.getPatientDetails(patientID);
+            String patientName = model.getPatientName(patientID);
             // Then add the data to the request object that will be sent to the Java Server Page, so that
             // the JSP can access the data (a Java data structure).
             request.setAttribute("patientDetails", patientDetails);
+            request.setAttribute("patientName", patientName);
             request.setAttribute("columnNames", columnNames);
 
             // Invoke the JSP.
             // A JSP page is actually converted into a Java class, so behind the scenes everything is Java.
             ServletContext context = getServletContext();
-            RequestDispatcher dispatch = context.getRequestDispatcher("/dummypage.jsp");
+            RequestDispatcher dispatch = context.getRequestDispatcher("/patientDetailsPage.jsp");
             dispatch.forward(request, response);
         } catch (IllegalArgumentException e) {
             e.printStackTrace();

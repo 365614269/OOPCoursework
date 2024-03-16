@@ -13,12 +13,13 @@
   <h1>Edit Patient Details</h1>
   <%
     String patientID = (String) request.getParameter("patientID");
+    String patientName = (String) request.getAttribute("patientName");
     List<String> patientDetails = (List<String>) request.getAttribute("patientDetails");
     ArrayList<String> columnNames = (ArrayList<String>) request.getAttribute("columnNames");
 
     if (patientID != null && !patientID.isEmpty() && patientDetails != null && !patientDetails.isEmpty() && columnNames != null && !columnNames.isEmpty()) {
       out.println("<form action='/changeDetails.html?patientID=" + patientID + "' method='POST'>");
-      out.println("<h2>Patient Details for: " + patientID + "</h2>");
+      out.println("<h2>Patient Details for: " + patientName + "</h2>");
       out.println("<input type='hidden' name='patientID' value='" + patientID + "'>");
 
       for (int i = 0; i < patientDetails.size(); i++) {

@@ -20,8 +20,10 @@ public class ViewDeadPatientsServlet extends HttpServlet {
         // Use the model to do the search and put the results into the request object sent to the
         // Java Server Page used to display the results.
         Model model = ModelFactory.getModel();
-        List<String> searchResult = model.getDeadPatients();
-        request.setAttribute("result", searchResult);
+        ArrayList<String> resultIDs = model.getDeadPatients();
+        ArrayList<String> resultNames = model.getPatientNames(resultIDs);
+        request.setAttribute("resultIDs", resultIDs);
+        request.setAttribute("resultNames", resultNames);
 
         // Invoke the JSP page.
         ServletContext context = getServletContext();

@@ -1,5 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.nio.charset.StandardCharsets" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -26,19 +28,20 @@
 <div class="main">
   <h1>Search Result</h1>
   <%
-    List<String> patients = (List<String>) request.getAttribute("result");
-    if (patients != null && patients.size() != 0)
+    List<String> patientIDs = (List<String>) request.getAttribute("resultIDs");
+    ArrayList<String> patientNames = (ArrayList<String>) request.getAttribute("resultNames");
+    if (patientIDs != null && !patientIDs.isEmpty())
     {
   %>
   <ul>
     <%
-      for (String patient : patients)
+      for (int i = 0; i < patientIDs.size(); i++)
       {
-        String patientID = URLEncoder.encode(patient, "UTF-8");
+        String patientID = URLEncoder.encode(patientIDs.get(i), StandardCharsets.UTF_8);
         String href = "patientDetails.html?patientID=" + patientID;
     %>
     <li>
-      <a href="<%=href%>"><%=patient%></a>
+      <a href="<%=href%>"><%=patientNames.get(i)%></a>
       <!-- Adding a delete button for each patient -->
       <button type="button" onclick="confirmDelete('<%=patientID%>')">Delete</button>
     </li>

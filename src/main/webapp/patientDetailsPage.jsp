@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Edit Patient</title>
-  <link rel="stylesheet" href="css/dummypage.css">
+  <link rel="stylesheet" href="css/patientDetailsPage.css">
 </head>
 <body>
 <div class="main">

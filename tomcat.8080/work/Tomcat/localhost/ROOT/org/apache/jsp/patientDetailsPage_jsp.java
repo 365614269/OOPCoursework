@@ -125,7 +125,7 @@ public final class patientDetailsPage_jsp extends org.apache.jasper.runtime.Http
       out.write("<head>\n");
       out.write("  <meta charset=\"UTF-8\">\n");
       out.write("  <title>Edit Patient</title>\n");
-      out.write("  <link rel=\"stylesheet\" href=\"css/dummypage.css\">\n");
+      out.write("  <link rel=\"stylesheet\" href=\"css/patientDetailsPage.css\">\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<div class=\"main\">\n");

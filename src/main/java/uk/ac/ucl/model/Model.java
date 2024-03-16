@@ -10,8 +10,6 @@ import java.util.Arrays;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.json.JSONObject;
-import org.json.JSONArray;
 
 public class Model {
   // The example code in this class should be replaced by your Model class code.
@@ -145,5 +143,38 @@ public class Model {
     int size = this.dataFrame.getRowCount();
 
     this.dataFrame.deleteRow(rowID);
+  }
+
+  public void toCSV(String fileName) {
+    try (FileWriter writer = new FileWriter(fileName + ".csv")) {
+      ArrayList<String> columnNames = this.getColumnNames();
+
+      for (int i = 0; i < columnNames.size(); i++) {
+        writer.append(columnNames.get(i));
+
+        if (i < columnNames.size() - 1) {
+          writer.append(",");
+        }
+      }
+
+      writer.append("\n");
+      int size = this.dataFrame.getRowCount();
+
+      for(int i = 0; i < size; i++) {
+        ArrayList<String> row = this.dataFrame.getRow(i);
+
+        for(int j = 0; j < row.size(); j++) {
+          writer.append(row.get(j));
+
+          if (j < row.size() - 1) {
+            writer.append(",");
+          }
+        }
+
+        writer.append("\n");
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }

@@ -18,21 +18,20 @@ import java.util.List;
 // The servlet invoked to perform a search.
 // The url http://localhost:8080/runsearch.html is mapped to calling doPost on the servlet object.
 // The servlet object is created automatically, you just provide the class.
-@WebServlet("/runJSONWriter.html")
-public class JSONWriterServlet extends HttpServlet
-{
+@WebServlet("/runCSVWriter.html")
+
+public class CSVWriterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         // Use the model to do the search and put the results into the request object sent to the
         // Java Server Page used to display the results.
         Model model = ModelFactory.getModel();
         String fileName = request.getParameter("fileNameString");
-        JSONWriter jsonWriter = new JSONWriter(fileName, model.getDataFrame());
-        jsonWriter.write();
+        model.toCSV(fileName);
 
         // Invoke the JSP page.
         ServletContext context = getServletContext();
-        RequestDispatcher dispatch = context.getRequestDispatcher("/displayJSONWriteResult.jsp");
+        RequestDispatcher dispatch = context.getRequestDispatcher("/displayCSVWriteResult.jsp");
         dispatch.forward(request, response);
     }
 }

@@ -2,8 +2,8 @@ package uk.ac.ucl.model;
 import java.util.ArrayList;
 
 public class Column {
-    private String name;
-    private ArrayList<String> rows = new ArrayList<>();
+    private final String name;
+    private final ArrayList<String> rows = new ArrayList<>();
 
 
     public Column(String name) {

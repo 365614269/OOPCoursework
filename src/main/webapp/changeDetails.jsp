@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/result.css">
     <title>Changing details of patients</title>
 </head>
 <body>

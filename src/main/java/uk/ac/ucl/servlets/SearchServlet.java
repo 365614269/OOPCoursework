@@ -20,25 +20,25 @@ import java.util.List;
 @WebServlet("/runsearch.html")
 public class SearchServlet extends HttpServlet
 {
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-  {
-    // Use the model to do the search and put the results into the request object sent to the
-    // Java Server Page used to display the results.
-    Model model = ModelFactory.getModel();
-    ArrayList<String> searchParams = new ArrayList<>();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        // Use the model to do the search and put the results into the request object sent to the
+        // Java Server Page used to display the results.
+        Model model = ModelFactory.getModel();
+        ArrayList<String> searchParams = new ArrayList<>();
 
-    for (int i = 1; i <= model.getColumnNames().size(); i++) {
-      searchParams.add(request.getParameter("param" + i));
+        for (int i = 1; i <= model.getColumnNames().size(); i++) {
+            searchParams.add(request.getParameter("param" + i));
+        }
+
+        List<String> resultIDs = model.searchFor(searchParams);
+        ArrayList<String> resultNames = model.getPatientNames(resultIDs);
+        request.setAttribute("resultIDs", resultIDs);
+        request.setAttribute("resultNames", resultNames);
+
+        // Invoke the JSP page.
+        ServletContext context = getServletContext();
+        RequestDispatcher dispatch = context.getRequestDispatcher("/searchResult.jsp");
+        dispatch.forward(request, response);
     }
-
-    List<String> resultIDs = model.searchFor(searchParams);
-    ArrayList<String> resultNames = model.getPatientNames(resultIDs);
-    request.setAttribute("resultIDs", resultIDs);
-    request.setAttribute("resultNames", resultNames);
-
-    // Invoke the JSP page.
-    ServletContext context = getServletContext();
-    RequestDispatcher dispatch = context.getRequestDispatcher("/searchResult.jsp");
-    dispatch.forward(request, response);
-  }
 }

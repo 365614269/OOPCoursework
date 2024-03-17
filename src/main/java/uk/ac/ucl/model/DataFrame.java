@@ -2,14 +2,10 @@ package uk.ac.ucl.model;
 import java.util.ArrayList;
 
 public class DataFrame {
-    private ArrayList<Column> columns;
+    private final ArrayList<Column> columns;
 
     public DataFrame() {
         this.columns = new ArrayList<>();
-    }
-
-    public DataFrame(ArrayList<Column> newColumns) {
-        this.columns = newColumns;
     }
 
     public void addColumn(Column newColumn) {

@@ -21,10 +21,6 @@ public class JSONWriter {
         this.dataFrame = dataFrame;
     }
 
-    public JSONWriter() {
-        this.fileName = "";
-        this.dataFrame = new DataFrame();
-    }
     public void write() {
         ArrayList<String> columnNames = this.dataFrame.getColumnNames();
         int size = this.dataFrame.getRowCount();

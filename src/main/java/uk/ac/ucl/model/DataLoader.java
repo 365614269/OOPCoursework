@@ -9,11 +9,7 @@ import java.util.List;
 
 public class DataLoader {
     private String path;
-    private DataFrame dataFrame = new DataFrame();
-
-    public DataLoader(String path) {
-        this.path = path;
-    }
+    private final DataFrame dataFrame = new DataFrame();
 
     public DataLoader() {
         this.path = "";
@@ -28,23 +24,10 @@ public class DataLoader {
     }
 
     public void addColumns(String[] columns) {
-        for (int i = 0; i < columns.length; i++) {
-            Column column = new Column(columns[i]);
+        for (String s : columns) {
+            Column column = new Column(s);
             this.dataFrame.addColumn(column);
         }
-    }
-
-    private String[] extend(String[] oldColumns) {  // Create a new array that complements the last empty column with an empty string.
-        int newLength = oldColumns.length + 1;
-        String[] newColumns = new String[newLength];
-
-        for (int i = 0; i < oldColumns.length; i++){
-            newColumns[i] = oldColumns[i];
-        }
-
-        newColumns[oldColumns.length] = "";
-
-        return newColumns;
     }
 
     public DataFrame read() {

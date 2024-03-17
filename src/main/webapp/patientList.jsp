@@ -13,19 +13,20 @@
 <body>
 <jsp:include page="/header.jsp"/>
 <div class="main">
-  <h2>Patients:</h2>
-  <ul>
-    <%
-      List<String> patientIDs = (List<String>) request.getAttribute("patientIDs");
-      ArrayList<String> patientNames = (ArrayList<String>) request.getAttribute("patientNames");
-      for (int i = 0; i < patientIDs.size(); i++)
-      {
-        String href = "patientDetails.html?patientID=" + URLEncoder.encode(patientIDs.get(i), "UTF-8");
-    %>
-    <li><a href="<%=href%>"><%=patientNames.get(i)%></a>
-    </li>
-    <% } %>
-  </ul>
+    <h2>Patients:</h2>
+    <ul>
+        <%
+            List<String> patientIDs = (List<String>) request.getAttribute("patientIDs");
+            ArrayList<String> patientNames = (ArrayList<String>) request.getAttribute("patientNames");
+            for (int i = 0; i < patientIDs.size(); i++)
+            {
+                String href = "patientDetails.html?patientID=" + URLEncoder.encode(patientIDs.get(i), "UTF-8");
+        %>
+        <li>
+            <a href="<%=href%>"><%=patientNames.get(i)%></a>
+        </li>
+        <% } %>
+    </ul>
 </div>
 <jsp:include page="/footer.jsp"/>
 </body>

@@ -12,3 +12,5 @@
  - >mvn exec:exec
  - Finally access it on the webpage
  - >localhost:8080
+
+This piece of work is finally awarded 66/100.
